@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Immeuble{% endblock %}
+
+{% block body %}
+    <h1>Immeuble</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ immeuble.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ immeuble.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ immeuble.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ immeuble.cp }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ immeuble.ville }}</td>
+            </tr>
+            <tr>
+                <th>Tel_proprietaire</th>
+                <td>{{ immeuble.telProprietaire }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_immeuble_index') }}">back to list</a>
+
+    <a href="{{ path('app_immeuble_edit', {'id': immeuble.id}) }}">edit</a>
+
+    {{ include('immeuble/_delete_form.html.twig') }}
+{% endblock %}

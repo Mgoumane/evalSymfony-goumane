@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Immeuble index{% endblock %}
+
+{% block body %}
+    <h1>Immeuble index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Adresse</th>
+                <th>Cp</th>
+                <th>Ville</th>
+                <th>Tel_proprietaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for immeuble in immeubles %}
+            <tr>
+                <td>{{ immeuble.id }}</td>
+                <td>{{ immeuble.libelle }}</td>
+                <td>{{ immeuble.adresse }}</td>
+                <td>{{ immeuble.cp }}</td>
+                <td>{{ immeuble.ville }}</td>
+                <td>{{ immeuble.telProprietaire }}</td>
+                <td>
+                    <a href="{{ path('app_immeuble_show', {'id': immeuble.id}) }}">show</a>
+                    <a href="{{ path('app_immeuble_edit', {'id': immeuble.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_immeuble_new') }}">Create new</a>
+
+{% endblock %}

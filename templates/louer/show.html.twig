@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Louer{% endblock %}
+
+{% block body %}
+    <h1>Louer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ louer.id }}</td>
+            </tr>
+            <tr>
+                <th>Prix_semaine</th>
+                <td>{{ louer.prixSemaine }}</td>
+            </tr>
+            <tr>
+                <th>Nombre_semaines</th>
+                <td>{{ louer.nombreSemaines }}</td>
+            </tr>
+            <tr>
+                <th>DateDebutLocation</th>
+                <td>{{ louer.dateDebutLocation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_louer_index') }}">back to list</a>
+
+    <a href="{{ path('app_louer_edit', {'id': louer.id}) }}">edit</a>
+
+    {{ include('louer/_delete_form.html.twig') }}
+{% endblock %}
